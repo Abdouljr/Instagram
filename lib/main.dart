@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/post_widget.dart';
+import 'package:instagram/stories_widget.dart';
 
 void main() {
   runApp(const Myapp());
@@ -37,13 +39,17 @@ class Myapp extends StatelessWidget {
             ),
           ],
         ),
-        body: Container(
-          color: Colors.blue,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [Storieswidget(), const Postwidget()],
+          ),
         ),
         bottomNavigationBar: BottomNavigationBar(
             selectedItemColor: Colors.black,
             unselectedItemColor: Colors.grey,
             type: BottomNavigationBarType.fixed,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
             items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(
