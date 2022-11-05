@@ -6,9 +6,16 @@ void main() {
   runApp(const Myapp());
 }
 
-class Myapp extends StatelessWidget {
+class Myapp extends StatefulWidget {
   const Myapp({super.key});
 
+  @override
+  State<Myapp> createState() => _MyappState();
+}
+
+class _MyappState extends State<Myapp> {
+  final PageController pageController = PageController(initialPage: 0);
+  int indexCourant = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,7 +48,7 @@ class Myapp extends StatelessWidget {
         ),
         body: SingleChildScrollView(
           child: Column(
-            children: [Storieswidget(), const Postwidget()],
+            children: [Storieswidget(), Postwidget()],
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
